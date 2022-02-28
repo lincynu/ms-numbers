@@ -22,7 +22,8 @@ public class NumbersRepository {
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public String checkInDb(Integer num){
-        String ans = "Invalid number was given";
+        String ans = "Invalid number was given.";
+        if (num<0) return ans;
         String query = String.format("select id from numbers where id = %s or id = %s", num, num + 1);
         List<String> result = jdbcTemplate.queryForList(query, String.class);
         if (result.isEmpty()){

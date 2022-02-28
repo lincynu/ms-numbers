@@ -1,6 +1,5 @@
 package vic.ds.msnumbers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +13,8 @@ public class Controller {
         this.numbersService = numbersService;
     }
 
-    @PostMapping("{id}")
-    public String processNum(@PathVariable Integer id){
-        return numbersService.processNum(id);
+    @PostMapping("{num}")
+    public String processNum(@PathVariable Integer num){
+        return numbersService.processNum(num);
     }
 }
