@@ -6,5 +6,6 @@ Components diagram
 
 Sequence diagram
 
-![Sequence drawio-2](https://user-images.githubusercontent.com/62603136/156060922-8d7714ce-0e77-4c92-93fa-1497a8a44a0b.png)
+![Sequence drawio-3](https://user-images.githubusercontent.com/62603136/156210465-734b726e-f8b3-487a-b9ac-7bfdf0ea8d3d.png)
+
 
