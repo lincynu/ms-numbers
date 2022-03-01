@@ -30,10 +30,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: db
+  name: db-svc
   labels:
     app: db
-    component: dp-svc
+    component: db-svc
 
 spec:
   ports:
@@ -42,5 +42,4 @@ spec:
       targetPort: 5432
       protocol: TCP
   selector:
-    enable: "true"
-    component: db-deploy
+    app: db

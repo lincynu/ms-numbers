@@ -23,7 +23,7 @@ spec:
             - containerPort: 8080
           env:
             - name: URL
-              value: "jdbc:postgresql://db-service:5432/postgres"
+              value: "jdbc:postgresql://db-svc:5432/postgres"
             - name: USER
               value: "user"
             - name: PASSWORD
@@ -33,7 +33,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ms-numbers
+  name: ms-numbers-svc
   labels:
     app: ms-numbers
     component: ms-numbers-svc
@@ -45,5 +45,4 @@ spec:
       targetPort: 8080
       protocol: TCP
   selector:
-    enable: "true"
-    component: ms-numbers-deploy
+    app: ms-numbers
