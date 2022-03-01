@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-numbers-deploy
+  labels:
+    app: ms-numbers
+    component: ms-numbers-deploy
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-numbers
+  template:
+    metadata:
+      labels:
+        app: ms-numbers
+    spec:
+      containers:
+        - name: ms-numbers-docker
+          image: lincynu/ms-numbers-docker:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: URL
+              value: "jdbc:postgresql://db-service:5432/postgres"
+            - name: USER
+              value: "user"
+            - name: PASSWORD
+              value: "password"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-numbers
+  labels:
+    app: ms-numbers
+    component: ms-numbers-svc
+
+spec:
+  ports:
+    - name: ms-numbers-docker
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    enable: "true"
+    component: ms-numbers-deploy
